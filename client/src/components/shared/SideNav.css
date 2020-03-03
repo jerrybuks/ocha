@@ -1,0 +1,17 @@
+ /* margin = (width-height)/2 */
+.isActive{
+    color: yellow
+}
+.header-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background: white;
+    color: var(--primary-color);
+
+}
+.sign-out{
+    padding-top: 2rem;
+    padding-left: 28px;
+}
