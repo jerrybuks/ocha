@@ -1,5 +1,5 @@
 import React from 'react'
-import SideNav from '../shared/SideNav';
+import SideNav from '.././shared/sidebar';
 
 export default function AdminDashboard() {
     return (

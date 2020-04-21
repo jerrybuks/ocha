@@ -1,7 +1,8 @@
 import React from 'react'
-import SideNav from './SideNav'
+import SideNav from '.././shared/sidebar'
 
-export default function Regulation() {
+export default function Regulation(props) {
+    console.log(props)
     return (
         <div>
             <SideNav activeNav="Regulation">
