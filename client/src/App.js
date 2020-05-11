@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import Routes from './Routes'
+import Routes from './routing/Routes'
 import theme from './theme';
 
 function App() {

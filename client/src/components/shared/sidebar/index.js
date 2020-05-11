@@ -75,7 +75,7 @@ function SideBar(props) {
 			</nav>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<Typography paragraph>{props.children}</Typography>
+				<div >{props.children}</div>
 			</main>
 		</div>
 	);

@@ -3,11 +3,11 @@ import googleLogo from '.././assets/Glogo.svg';
 
 import { useStyles } from './style.js';
 
-export default function GoogleButton({ view }) {
+export default function GoogleButton({ view, onClick }) {
 	const classes = useStyles();
 	return (
 		<Fragment>
-			<div className={classes.root}>
+			<div className={classes.root} onClick={onClick}>
 				<div className={classes.logoWrapper}>
 					<img className={classes.logo} src={googleLogo} alt="google logo" />
 				</div>

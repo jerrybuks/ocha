@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -18,11 +18,13 @@ import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import StoreIcon from '@material-ui/icons/Store';
 
+import { signOutStart } from '../../.././redux/user/user.actions';
+
 import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} from'./styles.js';
 
 const DrawerContent = withRouter((props => <DrawerContentComp {...props} />))
 
- function DrawerContentComp({active, history}) {
+ function DrawerContentComp({active, history, signOutStart}) {
     const classes  = useStyles()
 
     let navigation = [
@@ -87,13 +89,18 @@ const DrawerContent = withRouter((props => <DrawerContentComp {...props} />))
                 </ListItem>
             ))}
             <div className={classes.button}> 
-                <Button variant="contained" size="small" >Log out</Button>	
+                <Button variant="contained" size="small"  onClick={signOutStart}>Log out</Button>	
             </div>
         </List>
     </div>
     )
 }
+
+const mapDispatchToProps = dispatch => ({
+    signOutStart : () => dispatch(signOutStart())
+})
+
 DrawerContent.propTypes = {
     active: PropTypes.string
 }
-export default DrawerContent;
+export default connect(null,mapDispatchToProps)(DrawerContent);
