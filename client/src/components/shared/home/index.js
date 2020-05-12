@@ -4,9 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { useStyles } from './styles.js';
 import { Button } from '@material-ui/core';
 
-const Home = withRouter((props) => <HomeContainer {...props} />);
-
-function HomeContainer(props) {
+function Home(props) {
 	const classes = useStyles();
 	const handleAuth = (value) => {
 		props.history.push({ pathname: `/auth`, state: value });
@@ -37,4 +35,4 @@ function HomeContainer(props) {
 	);
 }
 
-export default Home;
+export default withRouter(Home);

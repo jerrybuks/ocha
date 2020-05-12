@@ -22,9 +22,7 @@ import { signOutStart } from '../../.././redux/user/user.actions';
 
 import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} from'./styles.js';
 
-const DrawerContent = withRouter((props => <DrawerContentComp {...props} />))
-
- function DrawerContentComp({active, history, signOutStart}) {
+ function DrawerContent({active, history, signOutStart}) {
     const classes  = useStyles()
 
     let navigation = [
@@ -103,4 +101,4 @@ const mapDispatchToProps = dispatch => ({
 DrawerContent.propTypes = {
     active: PropTypes.string
 }
-export default connect(null,mapDispatchToProps)(DrawerContent);
+export default withRouter(connect(null,mapDispatchToProps)(DrawerContent));

@@ -12,6 +12,8 @@ import Redeem from '.././components/user/Redeem';
 import Home from '.././components/shared/home';
 import Auth from '.././components/shared/auth';
 import UserPrivateRoute from './UserPrivateRoute'
+import NoMatch from '../components/shared/NoMatch';
+
 
 function Routes() {
   return (
@@ -29,6 +31,7 @@ function Routes() {
                 <UserPrivateRoute exact path="/printBarcode" component={PrintBarcode} />
                 <UserPrivateRoute exact path="/offer" component={Offer} />
                 <UserPrivateRoute exact path="/redeem" component={Redeem} /> 
+                <Route component={NoMatch}/>
                 {/* <Route exact path="/login" component={Login} /> */}
               </Switch>
         </Router >
