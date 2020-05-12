@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import DrawerContent from './DrawerContent';
+
+import { selectCurrentUser } from '../../.././redux/user/user.selectors';
 
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,13 +17,15 @@ import { useTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { useStyles } from './styles.js';
+import AdminContent from './AdminContent';
+import UserContent from './UserContent';
 
 function SideBar(props) {
-	const { activeNav } = props;
+	const { activeNav, currentUser } = props;
 	const classes = useStyles();
 	const theme = useTheme();
 	const [ mobileOpen, setMobileOpen ] = React.useState(false);
-	console.log(props.history);
+	console.log(currentUser,"haaaaaaaaaaaaaaa");
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
@@ -55,10 +60,10 @@ function SideBar(props) {
 							paper: classes.drawerPaper
 						}}
 						ModalProps={{
-							keepMounted: true 
+							keepMounted: true
 						}}
 					>
-						<DrawerContent active={activeNav} />
+						{currentUser.isAdmin ? <AdminContent active={activeNav}/> : <UserContent active={activeNav} />}
 					</Drawer>
 				</Hidden>
 				<Hidden xsDown implementation="css">
@@ -69,13 +74,13 @@ function SideBar(props) {
 						variant="permanent"
 						open
 					>
-						<DrawerContent active={activeNav} />
+						{currentUser.isAdmin ? <AdminContent active={activeNav}/> : <UserContent active={activeNav} />}
 					</Drawer>
 				</Hidden>
 			</nav>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<div >{props.children}</div>
+				<div>{props.children}</div>
 			</main>
 		</div>
 	);
@@ -84,5 +89,8 @@ function SideBar(props) {
 SideBar.propTypes = {
 	activeNav: PropTypes.string
 };
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser
+});
 
-export default SideBar;
+export default connect(mapStateToProps)(SideBar);

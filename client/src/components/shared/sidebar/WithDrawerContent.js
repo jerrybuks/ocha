@@ -8,32 +8,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Button } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import PaymentIcon from '@material-ui/icons/Payment';
-import PrintIcon from '@material-ui/icons/Print';
-import ShopIcon from '@material-ui/icons/Shop';
-import GavelIcon from '@material-ui/icons/Gavel';
-// import ReportIcon from '@material-ui/icons/Report';
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import StoreIcon from '@material-ui/icons/Store';
 
-import { signOutStart } from '../../.././redux/user/user.actions';
+import { signOutStart } from '../../../redux/user/user.actions';
 
 import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} from'./styles.js';
 
- function DrawerContent({active, history, signOutStart}) {
+ function DrawerContent({active, history, signOutStart, navigation}) {
     const classes  = useStyles()
-
-    let navigation = [
-		{ text: 'Dashboard', path: 'dashboard', icon: <DashboardIcon /> },
-		{ text: 'Pay Bills', path: 'payBills', icon: <PaymentIcon /> },
-		{ text: 'Print Barcode', path: 'printBarcode', icon: <PrintIcon /> },
-		{ text: 'Exchange Room', path: 'exchangeRoom', icon: <ShopIcon />, isExpandable: true, childIcon: [{ text: "Offer",path: 'offer', icon: <StoreIcon /> }, { text: "Redeem", path: 'redeem', icon: <ShoppingCartIcon /> }] },
-		{ text: 'Check Recyclability', path: 'checkRecyclability', icon: <DeleteSweepIcon /> },
-		{ text: 'Regulation', path: 'regulation', icon: <GavelIcon /> },
-		// { text: 'Report', path: 'report', icon: <ReportIcon /> }
-    ];
 
     const handleClick = (path, isExpand) => {
 		if (!isExpand) {
