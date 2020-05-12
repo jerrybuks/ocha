@@ -11,7 +11,6 @@ function PrivateRoute({ checkUserSession, currentUser, isFetchingUser, component
 	useEffect(
 		() => {
 			checkUserSession();
-			console.log("I am routes")
 		},
 		[ checkUserSession ]
 	);

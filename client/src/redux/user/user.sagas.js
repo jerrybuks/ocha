@@ -25,9 +25,10 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
       userAuth,
       additionalData
     );
+    const isAdmin = yield userAuth.getIdTokenResult().then(({claims}) => claims.admin || false )
     const userSnapshot = yield userRef.get();
-    console.log(userSnapshot,"this is the user snapshot",userSnapshot.data())
-    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+    console.log("this is the user snapshot",userSnapshot.data())
+    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data(), isAdmin }));
   } catch (error) {
     yield put(signInFailure(error));
   }
@@ -35,7 +36,6 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
 
 export function* signInWithGoogle() {
   try {
-    console.log('I reached here my geee')
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
@@ -53,11 +53,8 @@ export function* signInWithEmail({ payload: { email, password } }) {
 }
 
 export function* isUserAuthenticated() {
-  console.log( "here i am oooooh")
   try {
-    console.log("helooooo peep")
     const userAuth = yield getCurrentUser();
-    console.log("my realest gee",userAuth)
     if (!userAuth)  {
       yield put(signInFailure("user not authenticated"));
       return
@@ -79,7 +76,6 @@ export function* signOut() {
 
 export function* signUp({ payload: { email, password, name: displayName } }) {
   try {
-    console.log(email, password, displayName)
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield put(signUpSuccess({ user, additionalData: { displayName } }));
   } catch (error) {
