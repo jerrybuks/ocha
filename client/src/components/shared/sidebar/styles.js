@@ -22,14 +22,15 @@ export const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         fontSize: theme.typography.pxToRem(22),
         backgroundColor: theme.palette.common.white,
-        color: theme.palette.primary.main,
-        padding: theme.spacing(2.3)
+		color: theme.palette.primary.main,
+		minHeight: 64,
     },
 	heading: {
 		fontSize: theme.typography.pxToRem(15),
 		fontWeight: theme.typography.fontWeightRegular
 	},
 	appBar: {
+		minHeight: 64,
 		[theme.breakpoints.up('sm')]: {
 			width: `calc(100% - ${drawerWidth}px)`,
 			marginLeft: drawerWidth
