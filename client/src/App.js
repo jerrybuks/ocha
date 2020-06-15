@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import theme from './theme';
-import UserAuthenticatedApp from './routing/UserAuthenticatedApp';
-
-import AdminAuthenticatedApp from './routing/AdminAuthenticatedApp';
-import UnAuthenticatedApp from './routing/UnAuthenticatedApp';
 
 import { selectCurrentUser, selectIsFetchingUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 import Spinner from './components/shared/spinner/Spinner';
+
+const AdminAuthenticatedApp = React.lazy(() => import('./routing/AdminAuthenticatedApp'))
+const UserAuthenticatedApp = React.lazy(() => import('./routing/UserAuthenticatedApp'))
+const UnAuthenticatedApp = React.lazy(() => import('./routing/UnAuthenticatedApp'))
+
 
 function App({ checkUserSession, currentUser, isFetchingUser }) {
 	useEffect(
@@ -29,7 +30,7 @@ function App({ checkUserSession, currentUser, isFetchingUser }) {
 			{isFetchingUser ? (
 				<Spinner />
 			) : (
-				<div>
+				<Suspense fallback={<Spinner />}>
 					{currentUser ? currentUser.isAdmin ? (
 						<AdminAuthenticatedApp />
 					) : (
@@ -37,7 +38,7 @@ function App({ checkUserSession, currentUser, isFetchingUser }) {
 					) : (
 						<UnAuthenticatedApp />
 					)}
-				</div>
+				</Suspense>
 			)}
 		</ThemeProvider>
 	);
