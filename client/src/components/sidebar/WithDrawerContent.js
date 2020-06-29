@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Button } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import { signOutStart } from '../../../redux/user/user.actions';
+import { signOutStart } from '../../redux/user/user.actions';
 
 import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} from'./styles.js';
 

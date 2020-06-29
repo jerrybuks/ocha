@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import homeBck from '.././assets/housewaste.jpg'
+import homeBck from '../../../assets/housewaste.jpg'
 export const useStyles = makeStyles(theme => ({
     root: {
         color: `${theme.palette.common.white}`,

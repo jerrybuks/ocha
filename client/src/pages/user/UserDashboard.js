@@ -1,5 +1,5 @@
 import React from 'react'
-import SideNav from '../shared/sidebar';
+import SideNav from '../.././components/sidebar';
 
 export default function UserDashboard() {
     return (

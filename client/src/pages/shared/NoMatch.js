@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Box } from '@material-ui/core';
-import notFound from './assets/pageNotFound.svg';
+import notFound from '../.././assets/pageNotFound.svg';
 
 function NoMatch(props) {
     console.log(props.history)

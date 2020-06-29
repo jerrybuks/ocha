@@ -8,7 +8,7 @@ import theme from './theme';
 
 import { selectCurrentUser, selectIsFetchingUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
-import Spinner from './components/shared/spinner/Spinner';
+import Spinner from './components/spinner/Spinner';
 
 const AdminAuthenticatedApp = React.lazy(() => import('./routing/AdminAuthenticatedApp'))
 const UserAuthenticatedApp = React.lazy(() => import('./routing/UserAuthenticatedApp'))

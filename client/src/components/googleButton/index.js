@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import googleLogo from '.././assets/Glogo.svg';
+import googleLogo from '../.././assets/Glogo.svg';
 
 import { useStyles } from './style.js';
 

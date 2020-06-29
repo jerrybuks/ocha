@@ -1,7 +1,7 @@
 
 import TextField from '@material-ui/core/TextField';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import bck from '.././assets/signIn-bck.jpg'
+import bck from '../../.././assets/signIn-bck.jpg'
 export const useStyles = makeStyles((theme) => ({
 	root: {
 		color: theme.palette.common.black,

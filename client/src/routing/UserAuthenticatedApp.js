@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import UserDashboard from '../components/user/UserDashboard';
-import CheckRecyclability from '../components/shared/CheckRecyclability';
-import Regulation from '../components/shared/Regulation';
-import Report from '../components/user/Report';
-import PayBills from '../components/user/PayBills';
-import PrintBarcode from '../components/user/PrintBarcode';
-import Offer from '../components/user/Offer';
-import Redeem from '../components/user/Redeem';
-import Home from '../components/shared/home';
-import Auth from '../components/shared/auth';
-import NoMatch from '../components/shared/NoMatch';
+import UserDashboard from '../pages/user/UserDashboard';
+import CheckRecyclability from '../pages/shared/CheckRecyclability';
+import Regulation from '../pages/shared/Regulation';
+import Report from '../pages/user/Report';
+import PayBills from '../pages/user/PayBills';
+import PrintBarcode from '../pages/user/PrintBarcode';
+import Offer from '../pages/user/Offer';
+import Redeem from '../pages/user/Redeem';
+import Home from '../pages/shared/home';
+import Auth from '../pages/shared/auth';
+import NoMatch from '../pages/shared/NoMatch';
 
 
 function UserAuthenticatedApp() {

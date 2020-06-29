@@ -4,16 +4,16 @@ import { Button, Card, Box, Link, Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import GoogleButton from '../googleButton';
+import GoogleButton from '../../../components/googleButton';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCurrentUser, selectIsFetchingUser } from '../../.././redux/user/user.selectors';
-import { checkUserSession } from '../../.././redux/user/user.actions';
+import { selectCurrentUser, selectIsFetchingUser } from '../../../redux/user/user.selectors';
+import { checkUserSession } from '../../../redux/user/user.actions';
 
 import { googleSignInStart, emailSignInStart, signUpStart } from '../../../redux/user/user.actions';
 
 import { ValidationTextField, useStyles } from './styles';
-import Spinner from '../spinner/Spinner';
+import Spinner from '../../../components/spinner/Spinner';
 
 function SignInAndUp({
 	location,

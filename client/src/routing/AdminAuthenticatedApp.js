@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import AdminDashboard from '../components/admin/AdminDashboard';
-import CheckRecyclability from '../components/shared/CheckRecyclability';
-import Regulation from '../components/shared/Regulation';
-import Report from '../components/user/Report';
-import Home from '../components/shared/home';
-import Auth from '../components/shared/auth';
-import NoMatch from '../components/shared/NoMatch';
+import AdminDashboard from '../pages/admin/AdminDashboard';
+import CheckRecyclability from '../pages/shared/CheckRecyclability';
+import Regulation from '../pages/shared/Regulation';
+import Report from '../pages/user/Report';
+import Home from '../pages/shared/home';
+import Auth from '../pages/shared/auth';
+import NoMatch from '../pages/shared/NoMatch';
 
 
 function AdminAuthenticatedApp() {

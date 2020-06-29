@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Home from '../components/shared/home';
-import Auth from '../components/shared/auth';
+import Home from '../pages/shared/home';
+import Auth from '../pages/shared/auth';
 
 export default function UnAuthenticatedApp() {
 	return (

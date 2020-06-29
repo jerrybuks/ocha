@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 
-import { selectCurrentUser } from '../../.././redux/user/user.selectors';
+import { selectCurrentUser } from '../.././redux/user/user.selectors';
 
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,7 +25,7 @@ function SideBar(props) {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [ mobileOpen, setMobileOpen ] = React.useState(false);
-	console.log(currentUser,"haaaaaaaaaaaaaaa");
+
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
