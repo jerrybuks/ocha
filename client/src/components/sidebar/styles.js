@@ -1,8 +1,8 @@
 
 import { makeStyles, withStyles  } from '@material-ui/core/styles';
-import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
-import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import MuiAccordion from '@material-ui/core/Accordion';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
 const drawerWidth = 240;
 
@@ -73,7 +73,7 @@ export const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const ExpansionPanel = withStyles({
+export const Accordion = withStyles({
 	root: {
 	  border: 'none',
 	  boxShadow: 'none',
@@ -90,9 +90,9 @@ export const ExpansionPanel = withStyles({
 	  },
 	},
 	expanded: {},
-  })(MuiExpansionPanel);
+  })(MuiAccordion);
   
-  export const ExpansionPanelSummary = withStyles({
+  export const AccordionSummary = withStyles({
 	root: {
 	  backgroundColor: 'transparent',
 	  marginBottom: -1,
@@ -110,12 +110,12 @@ export const ExpansionPanel = withStyles({
 	  },
 	},
 	expanded: {},
-  })(MuiExpansionPanelSummary);
+  })(MuiAccordionSummary);
   
-  export const ExpansionPanelDetails = withStyles(theme => ({
+  export const AccordionDetails = withStyles(theme => ({
 	root: {
 	  padding: '0 12px',
 	},
-  }))(MuiExpansionPanelDetails)
+  }))(MuiAccordionDetails)
 
    

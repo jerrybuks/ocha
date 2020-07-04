@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { signOutStart } from '../../redux/user/user.actions';
 
-import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} from'./styles.js';
+import {Accordion,AccordionSummary,AccordionDetails,useStyles} from'./styles.js';
 
  function DrawerContent({active, history, signOutStart, navigation}) {
     const classes  = useStyles()
@@ -38,17 +38,17 @@ import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} fr
                     {!isExpandable ? <>
                         <span className={active === text ? classes.isActive : ''}>{icon}</span>
                         <ListItemText primary={text} className={classes.leftMarginSmall}/>
-                    </> : <ExpansionPanel >
+                    </> : <Accordion >
                             
-                            <ExpansionPanelSummary
+                            <AccordionSummary
                                 expandIcon={<ExpandMoreIcon className={classes.icon}/>}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >	
                                 <span >{icon}</span>
                                 <div ><ListItemText primary={text} className={classes.leftMarginSmall}/></div>
-                            </ExpansionPanelSummary>
-                            <ExpansionPanelDetails>
+                            </AccordionSummary>
+                            <AccordionDetails>
                             <List >
                                 {childIcon.map(({text,icon,path}) => (
                                     <div key={text}>
@@ -61,8 +61,8 @@ import {ExpansionPanel,ExpansionPanelSummary,ExpansionPanelDetails,useStyles} fr
                                     </div>
                                 ))}
                                 </List>
-                            </ExpansionPanelDetails>
-                        </ExpansionPanel>
+                            </AccordionDetails>
+                        </Accordion>
                     }
 
                 </ListItem>

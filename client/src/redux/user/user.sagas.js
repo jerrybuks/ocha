@@ -27,7 +27,6 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
     );
     const isAdmin = yield userAuth.getIdTokenResult().then(({claims}) => claims.admin || false )
     const userSnapshot = yield userRef.get();
-    console.log("this is the user snapshot",userSnapshot.data())
     yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data(), isAdmin }));
   } catch (error) {
     yield put(signInFailure(error));
