@@ -1,5 +1,5 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
-
+import { notify } from '../../utils/notify';
 import UserActionTypes from './user.types';
 
 import {
@@ -39,6 +39,7 @@ export function* signInWithGoogle() {
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
     yield put(signInFailure(error));
+    yield notify(error.message,'error')
   }
 }
 
@@ -48,6 +49,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
     yield put(signInFailure(error));
+    yield notify(error.message,'error')
   }
 }
 
@@ -79,6 +81,7 @@ export function* signUp({ payload: { email, password, name: displayName } }) {
     yield put(signUpSuccess({ user, additionalData: { displayName } }));
   } catch (error) {
     yield put(signUpFailure(error));
+    yield notify(error.message,'error')
   }
 }
 

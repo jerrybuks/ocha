@@ -5,7 +5,7 @@ import { Box } from '@material-ui/core';
 
 import { createStructuredSelector } from 'reselect';
 
-import { selectCurrentUser, selectIsFetchingUser } from '../../../redux/user/user.selectors';
+import { selectCurrentUser, selectIsFetchingUser, selectIsLoggingIn } from '../../../redux/user/user.selectors';
 import { googleSignInStart, emailSignInStart, signUpStart } from '../../../redux/user/user.actions';
 import AuthForm from '../../../components/auth-form';
 import WithSpinner from '../../../components/with-spinner/withSpinner';
@@ -35,9 +35,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = createStructuredSelector({
 	currentUser: selectCurrentUser,
-	isLoading: selectIsFetchingUser
+	isLoading: selectIsFetchingUser,
+	isLoggingIn: selectIsLoggingIn
 });
 
-const AuthPageConatiner = compose(connect(mapStateToProps, mapDispatchToProps), WithSpinner)(AuthPage);
+const AuthPageContainer = compose(connect(mapStateToProps, mapDispatchToProps), WithSpinner)(AuthPage);
 
-export default AuthPageConatiner;
+export default AuthPageContainer;

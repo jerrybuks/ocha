@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Box } from '@material-ui/core';
+import { Card, Box, CircularProgress } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
@@ -8,7 +8,7 @@ import { ValidationTextField, useStyles } from './styles';
 import { PrimaryButton } from '../cutomButtons/buttons';
 import AuthFormFooter from './authFormFooter';
 
-export default function AuthForm({ location, emailSignInStart, googleSignInStart, signUpStart }) {
+export default function AuthForm({ location, emailSignInStart, googleSignInStart, signUpStart, isLoggingIn }) {
 	const classes = useStyles();
 	const [ action, setAction ] = useState(location.state);
 	const [ state, setState ] = useState({ name: '', email: '', password: '', showPassword: false });
@@ -92,8 +92,8 @@ export default function AuthForm({ location, emailSignInStart, googleSignInStart
 						<Box mr={2}>
 							<GoogleButton view={action || 'sign in'} onClick={googleSignInStart} />
 						</Box>
-						<PrimaryButton variant="contained" size="large" onClick={handleSignInAndUp}>
-							{action || 'sign in'}
+						<PrimaryButton id="signUp" variant="contained" size="large" onClick={handleSignInAndUp} disabled={isLoggingIn} >
+							{ !isLoggingIn ? (action || 'sign in') : <CircularProgress  color="white" size={15}/> }	
 						</PrimaryButton>
 					</Box>
 					<AuthFormFooter {...{ isSignUp, handleClick, classes }} />

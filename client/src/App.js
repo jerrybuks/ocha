@@ -8,7 +8,7 @@ import theme from './theme';
 
 import { checkUserSession } from './redux/user/user.actions';
 import MountedAppConatianer from './MountedApp';
-
+import Notification from "./components/notification";
 
 function App({ checkUserSession }) {
 	useEffect(
@@ -22,6 +22,7 @@ function App({ checkUserSession }) {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
+			<Notification />
 			<MountedAppConatianer />
 		</ThemeProvider>
 	);
