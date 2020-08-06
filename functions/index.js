@@ -12,12 +12,20 @@ exports.addAdminClaim = functions.https.onCall((email) =>
 		.catch((err) => err)
 );
 exports.createUUID = functions.https.onCall(async () => {
-	try{
+	try {
 		const uuidVal = uuidv4();
-		await admin.firestore().collection('wasteBagIds').add({ wasteBagId: uuidVal });
-		  return { status: `success`, message: `uuid was succesfullly generated `, val: uuidVal }
-	} catch(err) {
-		  return err
+		await admin
+			.firestore()
+			.collection('wasteBagIds')
+			.add({
+				wasteBagId: uuidVal,
+				createdAt: Date.now(),
+				assStatus: 'unassigned',
+				Billed: 'false',
+				paymentStatus: 'unpaid'
+			});
+		return { status: `success`, message: `uuid was succesfullly generated `, val: uuidVal };
+	} catch (err) {
+		return err;
 	}
 });
-
