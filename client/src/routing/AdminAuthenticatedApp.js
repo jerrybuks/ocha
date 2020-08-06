@@ -8,6 +8,7 @@ import Report from '../pages/user/Report';
 import Home from '../pages/shared/home';
 import Auth from '../pages/shared/auth';
 import NoMatch from '../pages/shared/NoMatch';
+import Bags from '../pages/admin/Bags';
 
 
 function AdminAuthenticatedApp() {
@@ -18,6 +19,7 @@ function AdminAuthenticatedApp() {
               <Route exact path="/" component={Home} />
               <Route exact path="/auth" component={Auth} /> 
                 <Route exact path="/dashboard" component={AdminDashboard} />
+                <Route exact path="/bags" component={Bags} />
                 <Route exact path="/checkRecyclability" component={CheckRecyclability} />
                 <Route exact path="/regulation" component={Regulation} />
                 <Route exact path="/report" component={Report} />

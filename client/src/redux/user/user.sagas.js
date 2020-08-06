@@ -114,6 +114,7 @@ export function* onSignUpSuccess() {
 }
 
 export function* userSagas() {
+  console.log("user saga dey run ooooh")
   yield all([
     call(onGoogleSignInStart),
     call(onEmailSignInStart),

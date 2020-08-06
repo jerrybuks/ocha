@@ -1,0 +1,8 @@
+const BagActionTypes = {
+    GENERATE_BAG_START: ' GENERATE_BAG_START',
+    GENERATE_BAG_SUCCESS: ' GENERATE_BAG_SUCCESS',
+    GENERATE_BAG_FAILURE: 'GENERATE_BAG_FAILURE'
+  };
+  
+  export default BagActionTypes;
+  
