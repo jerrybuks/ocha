@@ -8,6 +8,7 @@ import GavelIcon from '@material-ui/icons/Gavel';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import StoreIcon from '@material-ui/icons/Store';
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 
 import WithDrawerContent from './WithDrawerContent';
 
@@ -15,7 +16,7 @@ export default function UserContent({active}) {
 	const userNav = [
 		{ text: 'Dashboard', path: 'dashboard', icon: <DashboardIcon /> },
 		{ text: 'Pay Bills', path: 'payBills', icon: <PaymentIcon /> },
-		{ text: 'Print Barcode', path: 'printBarcode', icon: <PrintIcon /> },
+		{ text: 'Manage Bags', path: 'manageBags', icon: <LocalMallOutlinedIcon /> },
 		{
 			text: 'Exchange Room',
 			path: 'exchangeRoom',

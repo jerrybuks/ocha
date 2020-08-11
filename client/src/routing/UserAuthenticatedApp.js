@@ -5,7 +5,7 @@ import CheckRecyclability from '../pages/shared/CheckRecyclability';
 import Regulation from '../pages/shared/Regulation';
 import Report from '../pages/user/Report';
 import PayBills from '../pages/user/PayBills';
-import PrintBarcode from '../pages/user/PrintBarcode';
+import ManageBags from '../pages/user/ManageBags';
 import Offer from '../pages/user/Offer';
 import Redeem from '../pages/user/Redeem';
 import Home from '../pages/shared/home';
@@ -25,7 +25,7 @@ function UserAuthenticatedApp() {
                 <Route exact path="/regulation" component={Regulation} />
                 <Route exact path="/report" component={Report} />
                 <Route exact path="/payBills" component={PayBills} />
-                <Route exact path="/printBarcode" component={PrintBarcode} />
+                <Route exact path="/manageBags" component={ManageBags} />
                 <Route exact path="/offer" component={Offer} />
                 <Route exact path="/redeem" component={Redeem} /> 
                 <Route component={NoMatch}/>

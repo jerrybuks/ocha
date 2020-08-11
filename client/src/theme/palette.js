@@ -26,7 +26,8 @@ export default {
     contrastText: white,
     main: '#28a745',
     light: 'rgba(40, 168, 70, 0.9)',
-    // dark: '#0B48A0'
+    veryLight: 'rgba(40, 168, 70, 0.1)',
+    dark: 'darkgreen'
   },
   secondary: {
     contrastText: white,

@@ -18,7 +18,7 @@ import {Accordion,AccordionSummary,AccordionDetails,useStyles} from'./styles.js'
 
     const handleClick = (path, isExpand) => {
 		if (!isExpand) {
-			history.push(path);
+			history.push(`/${path}`);
 		}
 		
 	};
