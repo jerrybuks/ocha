@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { firestore } from '../firebase/firebase.utils';
 
-const useFirebasePagination = (totalItemsCount, noOfitemsPerPage, totalNumOfPages) => {
+const useFirebasePagination = (ref,totalItemsCount, noOfitemsPerPage, totalNumOfPages) => {
 	const [ queryState, setQueryState ] = useState({
 		totalItemsCount,
 		noOfitemsPerPage,
@@ -19,7 +19,7 @@ const useFirebasePagination = (totalItemsCount, noOfitemsPerPage, totalNumOfPage
 	});
 
 	useEffect(() => {
-		getData(firestore.collection('Bags').orderBy('createdAt', 'desc').limit(noOfitemsPerPage));
+		getData(ref.limit(noOfitemsPerPage));
 	}, []);
 
 	const getData = async (fn, operation = 1) => {
@@ -72,9 +72,7 @@ const useFirebasePagination = (totalItemsCount, noOfitemsPerPage, totalNumOfPage
 	const getNextPage = () => {
 		if(queryState.curLast){
 			getData(
-				firestore
-					.collection('Bags')
-					.orderBy('createdAt', 'desc')
+				ref
 					.startAfter(queryState.curLast)
 					.limit(noOfitemsPerPage)
 			);
@@ -84,9 +82,7 @@ const useFirebasePagination = (totalItemsCount, noOfitemsPerPage, totalNumOfPage
 	const getPrevPage = () => {
 		if(queryState.curFirst){
 			getData(
-				firestore
-					.collection('Bags')
-					.orderBy('createdAt', 'desc')
+				ref
 					.endBefore(queryState.curFirst)
 					.limitToLast(noOfitemsPerPage),
 				-1

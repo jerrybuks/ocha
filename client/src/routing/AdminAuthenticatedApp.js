@@ -9,6 +9,7 @@ import Auth from '../pages/shared/auth';
 import NoMatch from '../pages/shared/NoMatch';
 import Bags from '../pages/admin/Bags';
 import Bag from '../pages/admin/Bag';
+import ScanBags from '../pages/admin/ScanBags';
 
 function AdminAuthenticatedApp() {
 	return (
@@ -23,6 +24,7 @@ function AdminAuthenticatedApp() {
 					<Route exact path="/checkRecyclability" component={CheckRecyclability} />
 					<Route exact path="/regulation" component={Regulation} />
 					<Route exact path="/report" component={Report} />
+					<Route exact path="/scanBags" component={ScanBags} />7
 					{/* <Route exact path="/offer" component={Offer} />
                 <Route exact path="/redeem" component={Redeem} />  */}
 					<Route component={NoMatch} />

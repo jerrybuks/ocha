@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState} from 'react';
 import useFirebasePagination from '../../custom-hooks/useFirebasePagination';
 import TablePresentationalComponent from './TablePresentationalComponent';
 import { Box } from '@material-ui/core';
+import { firestore } from '../../firebase/firebase.utils';
+
 
 export default function TableContainerComponent({ numOfDocs }) {
 	const itemsPerPage = 10;
 	const totalNoOfPages = Math.ceil(numOfDocs / itemsPerPage);
-
-	const [ queryState, getNextPage, getPrevPage ] = useFirebasePagination(numOfDocs, itemsPerPage, totalNoOfPages);
+	const firebaseDocRef = firestore.collection('Bags').orderBy('createdAt', 'desc');
+	const [ queryState, getNextPage, getPrevPage ] = useFirebasePagination(firebaseDocRef,numOfDocs, itemsPerPage, totalNoOfPages);
 
 	return (
 		<div>

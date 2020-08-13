@@ -69,6 +69,7 @@ export default {
     dark: 'rgb(26, 26, 26)',
     paper: white
   },
+  error: red,
   border: '#DFE3E8',
   divider: '#DFE3E8',
   cyanBlue:'#4285f4',
