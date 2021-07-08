@@ -28,6 +28,20 @@ export const getNumOfBagsFailure = (error) => ({
 	payload: error
 });
 
+export const linkBagToUserStart = (data) => ({
+    type: BagActionTypes.LINK_BAG_START,
+	payload: data
+  });
+
+export const linkBagToUserSuccess = () => ({
+	type: BagActionTypes.LINK_BAG_SUCCESS,
+});
+
+export const linkBagToUserFailure = (error) => ({
+	type: BagActionTypes.LINK_BAG_FAILURE,
+	payload: error
+});
+
 // export const getBagsStart = () => ({
 //     type: BagActionTypes.GET_BAGS_START,
 //   });

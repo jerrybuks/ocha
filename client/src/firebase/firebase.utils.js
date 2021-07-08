@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/functions'
+import { eventChannel } from "redux-saga";
 
 const config = {
     apiKey: "AIzaSyBOQ2B9yDR3NjvwkPOndCYvsOeRCAt3HG4",
@@ -47,6 +48,28 @@ export const getCurrentUser = () => {
         resolve(userAuth);
       }, reject);
     });
+  };
+
+  export const createBagChannel = (ref) => {
+    const listener = eventChannel((emit) => {
+      const unsubscribe = ref.onSnapshot(function (querySnapshot) {
+        let bag = {};
+        querySnapshot.forEach(function (doc) {
+          // console.log(doc,444)
+          // doc.ref.update = {
+          //     assStatus: "assigned",
+          //     userId: store.getState().user.id
+          // }
+          bag = doc;
+          console.log(doc,bag,555)
+        });
+        emit(bag);
+      });
+  
+      return () => unsubscribe;
+    });
+  
+    return listener;
   };
   
   export const auth = firebase.auth();

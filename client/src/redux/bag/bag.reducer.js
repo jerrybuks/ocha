@@ -6,7 +6,8 @@ const INITIAL_STATE = {
 	// isFetchingBags: null,
 	isGeneratingBag: null,
 	isFetchingNumOfDocs: null,
-	numOfDocs: 0
+	numOfDocs: 0,
+	isRegisteringBag: null
 };
 
 const bagReducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +24,13 @@ const bagReducer = (state = INITIAL_STATE, action) => {
 			return { ...state, isFetchingNumOfDocs: false, numOfDocs : action.payload};
 		case BagActionTypes.GET_NUMOFBAGS_FAILURE:
 			return { ...state, isFetchingNumOfDocs: false, error : action.payload };
+
+		case BagActionTypes.LINK_BAG_START:
+			return { ...state, isRegisteringBag: true };
+		case BagActionTypes.LINK_BAG_SUCCESS:
+			return { ...state, isRegisteringBag: false};
+		case BagActionTypes.LINK_BAG_FAILURE:
+			return { ...state, isRegisteringBag: false, error : action.payload };
 		default:
 			return state;
 	}

@@ -11,8 +11,8 @@ export default function AdminContent({active}) {
         { text: 'Dashboard', path: 'dashboard', icon: <DashboardIcon /> },
         { text: 'Scan Bags', path: 'scanBags', icon: <ScannerIcon /> },
         { text: 'Bags', path: 'bags', icon: <LocalMallOutlinedIcon /> },
-		{ text: 'Check Recyclability', path: 'checkRecyclability', icon: <DeleteSweepIcon /> },
-		{ text: 'Regulation', path: 'regulation', icon: <GavelIcon /> }
+		{ text: 'Districts', path: 'districts', icon: <GavelIcon /> },
+		{ text: 'Marketplace', path: 'marketPlace', icon: <DeleteSweepIcon /> },
 		// { text: 'Report', path: 'report', icon: <ReportIcon /> }
 	];
     return (

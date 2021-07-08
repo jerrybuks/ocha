@@ -8,7 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import formatDate from "../../utils/formatDate";
 import Pagination from "../../components/pagination"
@@ -50,7 +50,7 @@ function TablePresentationalComponent({isGettingTableData, curData : rows, hasNe
               <TableCell component="th" scope="row" className={classes.tableBagIds} onClick={() => history.push({ pathname: `bags/${row.docId}`, data: row })}>
                 {row.BagId}
               </TableCell>
-              <TableCell align="right">{row.Billed}</TableCell>
+              <TableCell align="right">{row.Billed ? "true" : "false"}</TableCell>
               <TableCell align="right">{row.assStatus}</TableCell>
               <TableCell align="right">{formatDate(row.createdAt.toDate())}</TableCell>
               <TableCell align="right">{row.paymentStatus}</TableCell>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AdminDashboard from '../pages/admin/AdminDashboard';
-import CheckRecyclability from '../pages/shared/CheckRecyclability';
-import Regulation from '../pages/shared/Regulation';
+import CheckRecyclability from '../pages/shared/MarketPlace';
+import Districts from '../pages/admin/Districts';
 import Report from '../pages/user/Report';
 import Home from '../pages/shared/home';
 import Auth from '../pages/shared/auth';
@@ -21,8 +21,8 @@ function AdminAuthenticatedApp() {
 					<Route exact path="/dashboard" component={AdminDashboard} />
 					<Route exact path="/bags" component={Bags} />
 					<Route exact path="/bags/:id" render={(props) => <Bag {...props} />} />
-					<Route exact path="/checkRecyclability" component={CheckRecyclability} />
-					<Route exact path="/regulation" component={Regulation} />
+					<Route exact path="/marketPlace" component={CheckRecyclability} />
+					<Route exact path="/districts" component={Districts} />
 					<Route exact path="/report" component={Report} />
 					<Route exact path="/scanBags" component={ScanBags} />7
 					{/* <Route exact path="/offer" component={Offer} />
